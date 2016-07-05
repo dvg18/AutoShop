@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AutoShop.Models
 {
-    public class Price
+    public class Services
     {
         public int id { get; set; }
         public string name { get; set; }
