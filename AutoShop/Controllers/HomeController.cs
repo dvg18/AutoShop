@@ -17,7 +17,8 @@ namespace AutoShop.Controllers
         public ActionResult Action()
         {
             var Action = _db.Action.ToList();
-            ViewBag.Action = Action;            return View();
+            ViewBag.Action = Action;
+            return View();
         }
         public ActionResult Index()
         {
