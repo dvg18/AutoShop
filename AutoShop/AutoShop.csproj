@@ -217,11 +217,11 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\ApplicationRole.cs" />
-    <Compile Include="Models\ApplicationRoleManager.cs" />
-    <Compile Include="Models\ApplicationUserManager.cs" />
-    <Compile Include="Models\CreateRoleModel.cs" />
-    <Compile Include="Models\EditRoleModel.cs" />
+    <Compile Include="Models\Action.cs" />
+    <Compile Include="Models\AutoShopInitializer.cs" />
+    <Compile Include="Models\AutoShopContext.cs" />
+    <Compile Include="Models\Employees.cs" />
+    <Compile Include="Models\Services.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -230,8 +230,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="App_Data\AutoShopDB.mdf" />
+    <Content Include="App_Data\AutoShopDB_log.ldf">
+      <DependentUpon>AutoShopDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />

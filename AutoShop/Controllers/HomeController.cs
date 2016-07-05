@@ -7,6 +7,7 @@ using System.Web.Mvc;
 //большая куча комментариев 
 //my comment 
 //ага
+//edfbg
 namespace AutoShop.Controllers
 {
     public class HomeController : Controller
