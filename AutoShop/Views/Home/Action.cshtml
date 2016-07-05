@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Акции</title>
+</head>
+<body>
+    <div>
+        <h3>Список игроков</h3>
+        <table>
+            <tr>
+                <td><p>Название акции</p></td>
+                <td><p>Cрок действия</p></td>
+                <td><p>Описание</p></td>
+                <td></td>
+            </tr>
+            @foreach (var p in ViewBag.Action)
+            {
+                <tr>
+                    <td><p>@p.name</p></td>
+                    <td><p>@p.date</p></td>
+                    <td><p>@p.description</p></td>
+               @*     <td><p><a href="/Home/Vote/@p.id">Голосовать</a></p></td> *@
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
