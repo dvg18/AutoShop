@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+//куча комментариев
+//большая куча комментариев
 namespace AutoShop.Controllers
 {
     public class HomeController : Controller
