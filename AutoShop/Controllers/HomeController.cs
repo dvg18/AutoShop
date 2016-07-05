@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 //куча комментариев
-//большая куча комментариев  
+//большая куча комментариев 
+//my comment 
 namespace AutoShop.Controllers
 {
     public class HomeController : Controller
