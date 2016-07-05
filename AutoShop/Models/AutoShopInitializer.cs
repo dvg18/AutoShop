@@ -12,7 +12,6 @@ namespace AutoShop.Models
                 name = "Регулировка углов установки (сход-развал)",
                 cost = 950,
                 description = "Краткое описание"
-
             };
             var Ivanov = new Employees
             {
@@ -25,7 +24,14 @@ namespace AutoShop.Models
                 name = "Бесплатная замена масла в ДВС",
                 date = "01.06.2016-01.09.2016",
                 description = "Бесплатно меняем масло при условии покупки масляного фильтра и моторного масла у наших партнеров"
+
             };
+            db.Services.Add(razvalShozhdenie);
+            db.Employees.Add(Ivanov);
+            db.Action.Add(action1);
+
+            base.Seed(db);
         }
+
     }
 }
