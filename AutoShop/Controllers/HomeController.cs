@@ -6,6 +6,7 @@ using System.Web.Mvc;
 //куча комментариев
 //большая куча комментариев 
 //my comment 
+//ага
 namespace AutoShop.Controllers
 {
     public class HomeController : Controller
