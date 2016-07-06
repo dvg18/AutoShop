@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -15,9 +14,9 @@ namespace AutoShop.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private ApplicationRoleManager _roleManager;        
-                           //cvbcvbcv        
-        public ManageController()   
+        private ApplicationRoleManager _roleManager;
+
+        public ManageController()
         {
         }
 
@@ -65,17 +64,22 @@ namespace AutoShop.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
-            if (User.IsInRole("Admin"))
-                ViewBag.Administration = true;//"<a href=\"/roles\">Ссылка</a>";
+
+            if (User.IsInRole("admin"))
+                ViewBag.Administration = true;  //"<a href=\"/roles\">Ссылка</a>";
             else ViewBag.Administration = false;
-            var model = new IndexViewModel
+            var model = new IndexViewModel { };
+            if (userId != null)
             {
-                HasPassword = HasPassword(),
-                PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
-                TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
-                Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
-            };
+                model = new IndexViewModel
+                {
+                    HasPassword = HasPassword(),
+                    PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
+                    TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
+                    Logins = await UserManager.GetLoginsAsync(userId),
+                    BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                };
+            }
             return View(model);
         }
 

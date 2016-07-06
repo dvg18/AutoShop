@@ -1,14 +1,7 @@
 ﻿using AutoShop.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-//куча комментариев
-//большая куча комментариев 
-//my comment 
-//ага
-//edfbg
+
 namespace AutoShop.Controllers
 {
     public class HomeController : Controller
@@ -19,20 +12,22 @@ namespace AutoShop.Controllers
             var Action = _db.Action.ToList();
             ViewBag.Action = Action;
             return View();
-        } 
-        public ActionResult Index(int page = 1)  
+        }
+        public ActionResult Employees()
         {
-            var action = _db.Action.ToList();
-            var pageSize = 3; // количество объектов на страницу        
-            var actionPerPages = action.Skip((page - 1) * pageSize).Take(pageSize);
-            var pageInfo = new PageInfo
-            {
-                PageNumber = page,
-                PageSize = pageSize,
-                TotalItems = action.Count()
-            };
-            var ivm = new IndexViewModelPage { PageInfo = pageInfo, Actions = actionPerPages };
-            return View(ivm);
+            var Employees = _db.Employees.ToList();
+            ViewBag.Employees = Employees;
+            return View();
+        }
+        public ActionResult Services()
+        {
+            var Services = _db.Services.ToList();
+            ViewBag.Services = Services;
+            return View();
+        }
+        public ActionResult Index()
+        {
+            return View();
         }
 
         public ActionResult About()

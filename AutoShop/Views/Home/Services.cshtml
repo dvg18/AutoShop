@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Услуги";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Услуги</title>
+</head>
+<body>
+    <div>
+        <h3>Наши услуги</h3>
+        <table>
+            <tr>
+                <td><p>Услуги</p></td>
+                <td><p>Цена</p></td>
+                <td><p>Описание</p></td>
+                <td></td>
+            </tr>
+            @foreach (var p in ViewBag.Services)
+            {
+                <tr>
+                    <td><p>@p.name</p></td>
+                    <td><p>@p.cost</p></td>
+                    <td><p>@p.description</p></td>
+                    @*     <td><p><a href="/Home/Vote/@p.id">Голосовать</a></p></td> *@
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
