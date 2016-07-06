@@ -14,9 +14,9 @@ namespace AutoShop.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private ApplicationRoleManager _roleManager;
-
-        public ManageController()
+        private ApplicationRoleManager _roleManager;        
+                           //cvbcvbcv        
+        public ManageController()   
         {
         }
 
