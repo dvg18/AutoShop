@@ -15,8 +15,9 @@ namespace AutoShop.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
-        public ManageController()
+        private ApplicationRoleManager _roleManager;        
+                           //cvbcvbcv        
+        public ManageController()   
         {
         }
 
@@ -64,6 +65,9 @@ namespace AutoShop.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+            if (User.IsInRole("Admin"))
+                ViewBag.Administration = true;//"<a href=\"/roles\">Ссылка</a>";
+            else ViewBag.Administration = false;
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),

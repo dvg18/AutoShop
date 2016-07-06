@@ -17,11 +17,22 @@ namespace AutoShop.Controllers
         public ActionResult Action()
         {
             var Action = _db.Action.ToList();
-            ViewBag.Action = Action;            return View();
-        }
-        public ActionResult Index()
-        {
+            ViewBag.Action = Action;
             return View();
+        } 
+        public ActionResult Index(int page = 1)  
+        {
+            var action = _db.Action.ToList();
+            var pageSize = 3; // количество объектов на страницу        
+            var actionPerPages = action.Skip((page - 1) * pageSize).Take(pageSize);
+            var pageInfo = new PageInfo
+            {
+                PageNumber = page,
+                PageSize = pageSize,
+                TotalItems = action.Count()
+            };
+            var ivm = new IndexViewModelPage { PageInfo = pageInfo, Actions = actionPerPages };
+            return View(ivm);
         }
 
         public ActionResult About()
