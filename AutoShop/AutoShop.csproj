@@ -207,6 +207,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\PagingHelpers.cs" />
     <Compile Include="Migrations\201607050648211_InitialCreate.cs" />
     <Compile Include="Migrations\201607050648211_InitialCreate.Designer.cs">
       <DependentUpon>201607050648211_InitialCreate.cs</DependentUpon>
@@ -226,6 +227,8 @@
     <Compile Include="Models\CreateRoleModel.cs" />
     <Compile Include="Models\EditRoleModel.cs" />
     <Compile Include="Models\Employees.cs" />
+    <Compile Include="Models\IndexViewModelPage.cs" />
+    <Compile Include="Models\PageInfo.cs" />
     <Compile Include="Models\Services.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LoginModel.cs" />
