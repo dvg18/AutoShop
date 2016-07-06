@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using AutoShop.Models;
+using System.Text;
+using System.Collections.Generic;
 
 namespace AutoShop.Controllers
 {
@@ -139,6 +141,28 @@ namespace AutoShop.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            Random rnd = new Random();                      // <<-- генерация случайного пароля
+            StringBuilder str = new StringBuilder(8);
+            List<int> Symbols = new List<int> { 35, 36, 37, 38, 42, 64 };
+
+            str.Clear();
+
+            for (int i = 0; i < 2; i++)
+            {
+                str.Append(((char)rnd.Next(48, 57)).ToString() +
+                             (char)rnd.Next(65, 90) +
+                             (char)rnd.Next(97, 122) +
+                             (char)Symbols[rnd.Next(0, 6)]);
+            } //-->>
+
+            var userId = User.Identity.GetUserId();
+
+            if (User.IsInRole("admin"))
+            {
+                ViewBag.Administration = true;
+                ViewBag.PasswordForAdmin = str.ToString();
+            }
+            else ViewBag.Administration = false;
             return View();
         }
 

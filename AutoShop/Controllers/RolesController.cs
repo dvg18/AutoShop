@@ -17,9 +17,19 @@ namespace AutoShop.Controllers
                 return HttpContext.GetOwinContext().GetUserManager<ApplicationRoleManager>();
             }
         }
+        private ApplicationUserManager UserManager {
+            get
+            {
+                return HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+        }
         public ActionResult Index()
         {
             return View(RoleManager.Roles);
+        }
+        public ActionResult Users()
+        {
+            return View(UserManager.Users);
         }
         public ActionResult Create()
         {

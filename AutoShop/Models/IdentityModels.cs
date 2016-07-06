@@ -16,6 +16,7 @@ namespace AutoShop.Models
             // Здесь добавьте утверждения пользователя
             return userIdentity;
         }
+
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
