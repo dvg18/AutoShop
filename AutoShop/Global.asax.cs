@@ -10,11 +10,13 @@ using System.Web.Routing;
 
 namespace AutoShop
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
+            Database.SetInitializer(new AppDbInitializer());
             Database.SetInitializer(new AutoShopInitializer());
+            
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

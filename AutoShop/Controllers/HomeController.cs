@@ -1,14 +1,7 @@
 ﻿using AutoShop.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-//куча комментариев
-//большая куча комментариев 
-//my comment 
-//ага
-//edfbg
+
 namespace AutoShop.Controllers
 {
     public class HomeController : Controller
@@ -17,7 +10,8 @@ namespace AutoShop.Controllers
         public ActionResult Action()
         {
             var Action = _db.Action.ToList();
-            ViewBag.Action = Action;            return View();
+            ViewBag.Action = Action;
+            return View();
         }
         public ActionResult Employees()
         {
