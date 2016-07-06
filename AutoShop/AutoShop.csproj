@@ -236,13 +236,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\aspnet-AutoShop-20160705105000.mdf" />
-    <Content Include="App_Data\aspnet-AutoShop-20160705105000_log.ldf">
-      <DependentUpon>aspnet-AutoShop-20160705105000.mdf</DependentUpon>
-    </Content>
     <Content Include="App_Data\AutoShopDB.mdf" />
-    <Content Include="App_Data\AutoShopDB_log.ldf">
-      <DependentUpon>AutoShopDB.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
