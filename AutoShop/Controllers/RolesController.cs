@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace AutoShop.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "admin")]
     public class RolesController : Controller
     {
         private ApplicationRoleManager RoleManager
