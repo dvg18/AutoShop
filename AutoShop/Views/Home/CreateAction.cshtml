@@ -1,0 +1,17 @@
+﻿
+@*@{
+    ViewBag.Title = "Создание акции";
+}
+
+<h2>CreateAction</h2> *@
+@using (Html.BeginForm("Action", "Home", FormMethod.Post))
+{
+    <input type="hidden" value="@ViewBag.BookId" name="BookId" />
+    <p>Введите название акции: </p>
+    @Html.TextBox("name", "Акция")
+    <p>Введите срок действия:</p>
+    @Html.TextBox("date", "Период")
+    <p>Кратко опишите акцию:</p>
+    @Html.TextBox("description", "Описание")
+    <p><input type="submit" value="Отправить" /></p>
+}
