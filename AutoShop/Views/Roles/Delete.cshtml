@@ -1,0 +1,17 @@
+﻿@model AutoShop.Models.EditUsersModel
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удалить</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "")
+            @Html.HiddenFor(model => model.Email)
+            <form method="post">
+                <h2>Вы уверены, что хотите удалить этот аккаунт?</h2>
+                <button type="submit">Да</button>
+            </form>
+}

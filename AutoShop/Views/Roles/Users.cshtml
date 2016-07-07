@@ -21,6 +21,10 @@
                 <td>@item.Email </td>
                 <td>@item.Visits </td>
                 <td>@item.Discount </td>
+                <td>
+                    @Html.ActionLink("Редактировать", "Edit", "Roles", new { email = item.Email }, null) |
+                        @Html.ActionLink("Удалить", "Delete", "Roles", new { email = item.Email }, null)
+                </td>
             </tr>
         }
 </table>

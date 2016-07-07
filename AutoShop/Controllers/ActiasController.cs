@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using AutoShop.Models;
 
@@ -17,6 +13,9 @@ namespace AutoShop.Controllers
         // GET: Actias
         public ActionResult Index()
         {
+            if (User.IsInRole("admin"))
+                ViewBag.Administration = true;
+            else ViewBag.Administration = false;
             return View(db.Action.ToList());
         }
 
@@ -36,6 +35,7 @@ namespace AutoShop.Controllers
         }
 
         // GET: Actias/Create
+        [Authorize(Roles = "admin")]
         public ActionResult Create()
         {
             return View();
@@ -59,6 +59,7 @@ namespace AutoShop.Controllers
         }
 
         // GET: Actias/Edit/5
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +79,7 @@ namespace AutoShop.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public ActionResult Edit([Bind(Include = "id,name,date,description")] Actia actia)
         {
             if (ModelState.IsValid)
@@ -90,6 +92,7 @@ namespace AutoShop.Controllers
         }
 
         // GET: Actias/Delete/5
+        [Authorize(Roles = "admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,6 +110,7 @@ namespace AutoShop.Controllers
         // POST: Actias/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Actia actia = db.Action.Find(id);

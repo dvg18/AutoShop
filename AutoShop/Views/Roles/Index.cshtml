@@ -6,12 +6,11 @@
 }
 
 <h2>Роли</h2>
-<h4> @Html.ActionLink("Создать", "Create") </h4>
+@*<h4> @Html.ActionLink("Создать", "Create") </h4>*@
 <h4> @Html.ActionLink("Пользователи", "Users") </h4>
 <table class="table">
     <tr>
         <th>Название</th>
-        <th>Описание</th>
         <th></th>
     </tr>
     @foreach (var item in Model)
@@ -20,8 +19,8 @@
             <td>@item.Name</td>
             <td>@item.Description</td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+               @* @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }) *@
             </td>
         </tr>
     }

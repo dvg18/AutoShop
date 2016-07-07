@@ -60,7 +60,7 @@ namespace AutoShop.Controllers
                 IdentityResult result = await UserManager.UpdateAsync(user);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Users", "Roles");
                 }
                 else
                 {
@@ -73,6 +73,33 @@ namespace AutoShop.Controllers
             }
 
             return View(model);
+        }
+        [HttpGet]
+        public async Task<ActionResult> Delete(string email)
+        {
+            ApplicationUser user = await UserManager.FindByEmailAsync(email);
+            if (user != null)
+            {
+                EditUsersModel model = new EditUsersModel { Email = user.Email };
+                return View(model);
+            }
+            return RedirectToAction("Login", "Account");
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public async Task<ActionResult> DeleteConfirmed(EditUsersModel model)
+        {
+            ApplicationUser user = await UserManager.FindByEmailAsync(model.Email);
+            if (user != null)
+            {
+                IdentityResult result = await UserManager.DeleteAsync(user);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Users", "Roles");
+                }
+            }
+            return RedirectToAction("Index", "Home");
         }
     }
     

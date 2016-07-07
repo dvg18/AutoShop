@@ -8,7 +8,10 @@
 <h2>Услуги</h2>
 
 <p>
+@if (ViewBag.Administration)
+{
     @Html.ActionLink("Добавить", "Create")
+}
 </p>
 <table class="table">
     <tr>
@@ -36,9 +39,12 @@
             @Html.DisplayFor(modelItem => item.description)
         </td>
         <td>
-            @Html.ActionLink("Редактировать", "Edit", new { id=item.id }) |
+        @if (ViewBag.Administration)
+        {
+            @Html.ActionLink("Редактировать ", "Edit", new { id = item.id }) 
           @*  @Html.ActionLink("Детали", "Details", new { id=item.id }) | *@
-            @Html.ActionLink("Удалить", "Delete", new { id=item.id })
+            @Html.ActionLink("Удалить", "Delete", new { id = item.id })
+        }
         </td>
     </tr>
 }
