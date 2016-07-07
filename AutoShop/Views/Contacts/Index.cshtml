@@ -1,0 +1,40 @@
+﻿@model IEnumerable<AutoShop.Models.Contact>
+
+@{
+    ViewBag.Title = "Наши контакты";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Наши контакты</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            Адрес
+        </th>
+        <th>
+            Телефон
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.adress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.id }) 
+         @*   @Html.ActionLink("Details", "Details", new { id=item.id }) |*@
+           @* @Html.ActionLink("Delete", "Delete", new { id=item.id }) *@
+        </td>
+    </tr>
+}
+
+</table>

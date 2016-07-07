@@ -201,7 +201,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ActiaController.cs" />
     <Compile Include="Controllers\ActiasController.cs" />
+    <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -228,6 +230,7 @@
     <Compile Include="Models\ApplicationUserManager.cs" />
     <Compile Include="Models\AutoShopInitializer.cs" />
     <Compile Include="Models\AutoShopContext.cs" />
+    <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\CreateRoleModel.cs" />
     <Compile Include="Models\EditRoleModel.cs" />
     <Compile Include="Models\Employees.cs" />
@@ -344,6 +347,16 @@
     <Content Include="Views\Services\Details.cshtml" />
     <Content Include="Views\Services\Edit.cshtml" />
     <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Actia\Create.cshtml" />
+    <Content Include="Views\Actia\Delete.cshtml" />
+    <Content Include="Views\Actia\Details.cshtml" />
+    <Content Include="Views\Actia\Edit.cshtml" />
+    <Content Include="Views\Actia\Index.cshtml" />
+    <Content Include="Views\Contacts\Create.cshtml" />
+    <Content Include="Views\Contacts\Delete.cshtml" />
+    <Content Include="Views\Contacts\Details.cshtml" />
+    <Content Include="Views\Contacts\Edit.cshtml" />
+    <Content Include="Views\Contacts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
