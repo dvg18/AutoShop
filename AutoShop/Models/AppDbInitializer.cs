@@ -8,7 +8,7 @@ using System.Web;
 
 namespace AutoShop.Models
 {
-    public class AppDbInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
+    public class AppDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {
