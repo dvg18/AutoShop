@@ -8,11 +8,10 @@ namespace AutoShop.Models
 {
     public class AutoShopContext : DbContext
     {
-        public AutoShopContext() : base("AutoShopEntities") { }
+        public AutoShopContext() : base("DefaultConnection") { }
 
         public DbSet<Services> Services { get; set; }
         public DbSet<Actia> Action { get; set; }
         public DbSet<Employees> Employees { get; set; }
-
      }
 }
