@@ -13,6 +13,8 @@ namespace AutoShop.Models
         public DbSet<Services> Services { get; set; }
         public DbSet<Actia> Action { get; set; }
         public DbSet<Employees> Employees { get; set; }
+        public DbSet<Contact> Contact { get; set; }
 
-     }
+
+    }
 }

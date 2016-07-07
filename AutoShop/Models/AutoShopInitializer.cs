@@ -26,10 +26,15 @@ namespace AutoShop.Models
                 description = "Бесплатно меняем масло при условии покупки масляного фильтра и моторного масла у наших партнеров"
 
             };
+            var contact1 = new Contact
+            {
+                adress = "г. Томск ул. Вершинина 38",
+                phone = "8-3822-77-77-77",
+            };
             db.Services.Add(razvalShozhdenie);
             db.Employees.Add(Ivanov);
             db.Action.Add(action1);
-
+            db.Contact.Add(contact1);
             base.Seed(db);
         }
 
