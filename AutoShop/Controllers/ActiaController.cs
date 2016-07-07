@@ -17,7 +17,7 @@ namespace AutoShop.Controllers
         // GET: Actias
         public ActionResult Index()
         {
-            return View(db.Actia.ToList());
+            return View(db.Action.ToList());
         }
 
         // GET: Actias/Details/5
@@ -27,7 +27,7 @@ namespace AutoShop.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Actia actia = db.Actia.Find(id);
+            Actia actia = db.Action.Find(id);
             if (actia == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace AutoShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Actia.Add(actia);
+                db.Action.Add(actia);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace AutoShop.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Actia actia = db.Actia.Find(id);
+            Actia actia = db.Action.Find(id);
             if (actia == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace AutoShop.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Actia actia = db.Actia.Find(id);
+            Actia actia = db.Action.Find(id);
             if (actia == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace AutoShop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Actia actia = db.Actia.Find(id);
-            db.Actia.Remove(actia);
+            Actia actia = db.Action.Find(id);
+            db.Action.Remove(actia);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
