@@ -19,7 +19,7 @@ namespace AutoShop.Models
                 jobProfile = "Механик",
                 phone = "8-913-897-79-45"
             };
-            var action1 = new Action
+            var action1 = new Actia
             {
                 name = "Бесплатная замена масла в ДВС",
                 date = "01.06.2016-01.09.2016",
