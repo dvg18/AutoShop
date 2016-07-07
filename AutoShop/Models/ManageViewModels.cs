@@ -12,6 +12,7 @@ namespace AutoShop.Models
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
+        //public string FIOname { get; set; }
     }
 
     public class ManageLoginsViewModel

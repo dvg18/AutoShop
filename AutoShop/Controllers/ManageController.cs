@@ -14,7 +14,8 @@ namespace AutoShop.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-       // private ApplicationRoleManager _roleManager;             
+        //private ApplicationUser _user;
+        // private ApplicationRoleManager _roleManager;             
         public ManageController()   
         {
         }
@@ -76,6 +77,7 @@ namespace AutoShop.Controllers
                     PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                     TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                     Logins = await UserManager.GetLoginsAsync(userId),
+                    //FIOname = _user.FIOName,
                     BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
                 };
             }

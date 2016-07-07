@@ -4,7 +4,7 @@ using System.Data.Entity;
 
 namespace AutoShop.Models
 {
-    public class AppDbInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
+    public class AppDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {
@@ -20,11 +20,11 @@ namespace AutoShop.Models
             roleManager.Create(role1);
             roleManager.Create(role2);
 
-            var admin = new ApplicationUser { Email = "dumkailim@gmail.com", UserName = "dumkailim@gmail.com" };
+            var admin = new ApplicationUser { Email = "dumkailim@gmail.com", UserName = "dumkailim@gmail.com", FIOName = "Группа администраторов", Visits = 1000, Discount = 100 };
             string password = "U$t1l1msk";
             var result = userManager.Create(admin, password);
 
-            var user = new ApplicationUser { Email = "aaa@aaa.aaa", UserName = "aaa@aaa.aaa" };
+            var user = new ApplicationUser { Email = "aaa@aaa.aaa", UserName = "aaa@aaa.aaa", FIOName = "Некий пользователь", Visits = 0, Discount = 0 };
             string userPassword = "aaa@AAA1";
             var userResult = userManager.Create(user, userPassword);
 

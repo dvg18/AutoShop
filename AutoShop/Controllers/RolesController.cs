@@ -1,6 +1,7 @@
 ﻿using AutoShop.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -10,6 +11,7 @@ namespace AutoShop.Controllers
     [Authorize(Roles = "admin")]
     public class RolesController : Controller
     {
+        private ApplicationDbContext db1= new ApplicationDbContext();
         private ApplicationRoleManager RoleManager
         {
             get
@@ -35,67 +37,42 @@ namespace AutoShop.Controllers
         {
             return View();
         }
-        [HttpPost]
-        public async Task<ActionResult> Create(CreateRoleModel model)
+        [HttpGet]
+        public async Task<ActionResult> Edit(string email)
         {
-            if (ModelState.IsValid)
+            ApplicationUser user = await UserManager.FindByEmailAsync(email);
+            if (user != null)
             {
-                IdentityResult result = await RoleManager.CreateAsync(new ApplicationRole
+                EditUsersModel model = new EditUsersModel { FIOName = user.FIOName, Visits = user.Visits, Discount = user.Discount, Email = user.Email };
+                return View(model);
+            }
+            return RedirectToAction("Login", "Account");
+        }
+        [HttpPost]
+        public async Task<ActionResult> Edit(EditUsersModel model)
+        {
+            ApplicationUser user = await UserManager.FindByEmailAsync(model.Email);
+            if (user != null)
             {
-                    Name = model.Name,
-                    Description = model.Description
-            });
+                user.FIOName = model.FIOName;
+                user.Visits = model.Visits;
+                user.Discount = model.Discount;
+                IdentityResult result = await UserManager.UpdateAsync(user);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
                     ModelState.AddModelError("", "Что-то пошло не так");
                 }
             }
+            else
+            {
+                ModelState.AddModelError("", "Пользователь не найден");
+            }
+
             return View(model);
-        }
-        public async Task<ActionResult> Edit(string id)
-        {
-            ApplicationRole role = await RoleManager.FindByIdAsync(id);
-            if (role != null)
-            {
-                return View(new EditRoleModel { Id = role.Id, Name = role.Name, Description = role.Description });
-            }
-            return RedirectToAction("Index");
-        }
-        [HttpPost]
-        public async Task<ActionResult> Edit(EditRoleModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                ApplicationRole role = await RoleManager.FindByIdAsync(model.Id);
-                if (role != null)
-                {
-                    role.Description = model.Description;
-                    role.Name = model.Name;
-                    IdentityResult result = await RoleManager.UpdateAsync(role);
-                    if (result.Succeeded)
-                    {
-                        return RedirectToAction("Index");
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("", "Что-то пошло не так");
-                    }
-                }
-            }
-            return View(model);
-        }
-        public async Task<ActionResult> Delete(string id)
-        {
-            ApplicationRole role = await RoleManager.FindByIdAsync(id);
-            if (role != null)
-            {
-                IdentityResult result = await RoleManager.DeleteAsync(role);
-            }
-            return RedirectToAction("Index");
         }
     }
     

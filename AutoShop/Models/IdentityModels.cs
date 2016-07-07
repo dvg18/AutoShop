@@ -16,6 +16,9 @@ namespace AutoShop.Models
             // Здесь добавьте утверждения пользователя
             return userIdentity;
         }
+        public string FIOName { get; set; }
+        public int Discount { get; set; }
+        public int Visits { get; set; }
 
     }
 

@@ -1,19 +1,26 @@
-﻿@model AutoShop.Models.EditRoleModel
+﻿@model AutoShop.Models.EditUsersModel
 
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Редактирование роли</h2>
+<h2>Редактировать данные профиля</h2>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     <div>
         @Html.ValidationSummary(true, "")
-        @Html.HiddenFor(model => model.Id)
-        <p>Название: @Html.EditorFor(model => model.Name)</p>
-        <p>Описание: @Html.EditorFor(model => model.Description)</p>
-        <p><input type="submit" value="Изменить" /></p>
+        <div>
+            @Html.HiddenFor(model => model.Email)
+            <p>ФИО: @Html.EditorFor(model => model.FIOName)</p>
+            <p>Посещения: @Html.EditorFor(model => model.Visits)</p>
+            <p>Скидка: @Html.EditorFor(model => model.Discount)</p>
+        </div>
+        <div>
+            <div>
+                <input type="submit" value="Сохранить" />
+            </div>
+        </div>
     </div>
 }

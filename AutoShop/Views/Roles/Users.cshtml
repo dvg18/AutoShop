@@ -7,13 +7,20 @@
 
 <h2>Пользователи</h2>
 <table class="table">
-
+    <tr>
+        <th>Ф.И.О.</th>
+        <th>Email</th>
+        <th>Количество посещений</th>
+        <th>Скидка</th>
+    </tr>
         @foreach (var item in Model)
         {
-            
+
             <tr>
-                <td>@item.UserName</td>
-                <td> </td>
+                <td>@item.FIOName</td>
+                <td>@item.Email </td>
+                <td>@item.Visits </td>
+                <td>@item.Discount </td>
             </tr>
         }
 </table>

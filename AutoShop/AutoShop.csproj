@@ -216,6 +216,14 @@
     <Compile Include="Migrations\201607050806215_DataMigration.Designer.cs">
       <DependentUpon>201607050806215_DataMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607070628204_DataMigration2.cs" />
+    <Compile Include="Migrations\201607070628204_DataMigration2.Designer.cs">
+      <DependentUpon>201607070628204_DataMigration2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607070729445_DataMigration3.cs" />
+    <Compile Include="Migrations\201607070729445_DataMigration3.Designer.cs">
+      <DependentUpon>201607070729445_DataMigration3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Action.cs" />
@@ -227,6 +235,7 @@
     <Compile Include="Models\AutoShopContext.cs" />
     <Compile Include="Models\CreateRoleModel.cs" />
     <Compile Include="Models\EditRoleModel.cs" />
+    <Compile Include="Models\EditUsersModel.cs" />
     <Compile Include="Models\Employees.cs" />
     <Compile Include="Models\IndexViewModelPage.cs" />
     <Compile Include="Models\PageInfo.cs" />
@@ -341,6 +350,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607050806215_DataMigration.resx">
       <DependentUpon>201607050806215_DataMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607070628204_DataMigration2.resx">
+      <DependentUpon>201607070628204_DataMigration2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607070729445_DataMigration3.resx">
+      <DependentUpon>201607070729445_DataMigration3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
