@@ -9,7 +9,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
+<body >
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -22,12 +22,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Главная", "Index", "Home")</li>
                 @*   <li>@Html.ActionLink("О программе", "About", "Home")</li> *@
-                    <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Акции", "Action", "Home")</li>
-                    <li>@Html.ActionLink("Услуги", "Services", "Home")</li>
-                    <li>@Html.ActionLink("Наши мастера", "Employees", "Home")</li>
+                    <li>@Html.ActionLink("Контакты", "Index", "Contacts")</li>
+                    <li>@Html.ActionLink("Акции", "Index", "Actias")</li>
+                    <li>@Html.ActionLink("Услуги", "Index", "Services")</li>
+                    <li>@Html.ActionLink("Наши мастера", "Index", "Employees")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -44,5 +44,20 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    @section scripts
+{
+        <script type="text/javascript">
+        $(function () {
+        $.ajaxSetup({ cache: false });
+        $(".compItem").click(function (e) {
+        e.preventDefault();
+        $.get(this.href, function (data) {
+        $('#dialogContent').html(data);
+        $('#modDialog').modal('show');
+        });
+        });
+        })
+        </script>
+    }
 </body>
 </html>

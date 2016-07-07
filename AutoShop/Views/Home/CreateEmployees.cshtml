@@ -1,0 +1,17 @@
+﻿
+@*@{
+    ViewBag.Title = "Создание акции";
+}*@
+
+<h2>Наши мастера(редактирование)</h2> 
+@using (Html.BeginForm("Employees", "Home", FormMethod.Post))
+{
+    <input type="hidden" value="@ViewBag.BookId" name="BookId" />
+    <p>ФИО: </p>
+    @Html.TextBox("fio", "")
+    <p>Профиль работ:</p>
+    @Html.TextBox("jobProfile", "")
+    <p>Мобильный телефон:</p>
+    @Html.TextBox("phone", "")
+    <p><input type="submit" value="Отправить" /></p>
+}

@@ -13,6 +13,18 @@ namespace AutoShop.Controllers
             ViewBag.Action = Action;
             return View();
         }
+        public ActionResult CreateAction()
+        {
+            return View();
+        }
+        public ActionResult CreateServices()
+        {
+            return View();
+        }
+        public ActionResult CreateEmployees()
+        {
+            return View();
+        }
         public ActionResult Employees()
         {
             var Employees = _db.Employees.ToList();

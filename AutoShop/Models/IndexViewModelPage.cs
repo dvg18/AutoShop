@@ -7,7 +7,7 @@ namespace AutoShop.Models
 {
     public class IndexViewModelPage
     {
-        public IEnumerable<Action> Actions { get; set; }  
+        public IEnumerable<Actia> Actions { get; set; }  
         public PageInfo PageInfo { get; set; }      
     }
 }
