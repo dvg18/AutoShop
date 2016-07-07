@@ -11,7 +11,7 @@ namespace AutoShop.Models
         public AutoShopContext() : base("AutoShopEntities") { }
 
         public DbSet<Services> Services { get; set; }
-        public DbSet<Action> Action { get; set; }
+        public DbSet<Actia> Action { get; set; }
         public DbSet<Employees> Employees { get; set; }
 
      }
