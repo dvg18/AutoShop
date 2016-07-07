@@ -8,7 +8,7 @@
 <h2>Акции</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Добавить")
+    @Html.ActionLink("Добавить", "Create")
 </p>
 <table class="table">
     <tr>
@@ -36,9 +36,9 @@
             @Html.DisplayFor(modelItem => item.description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Редактировать", new { id=item.id }) |
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.id }) |
          @*   @Html.ActionLink("Details", "Детали", new { id=item.id }) | *@
-            @Html.ActionLink("Delete", "Удалить", new { id=item.id })
+            @Html.ActionLink("Удалить", "Delete", new { id=item.id })
         </td>
     </tr>
 }
