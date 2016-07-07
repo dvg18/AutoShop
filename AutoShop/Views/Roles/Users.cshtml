@@ -1,0 +1,19 @@
+﻿@model IEnumerable<AutoShop.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Пользователи";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Пользователи</h2>
+<table class="table">
+
+        @foreach (var item in Model)
+        {
+            
+            <tr>
+                <td>@item.UserName</td>
+                <td> </td>
+            </tr>
+        }
+</table>

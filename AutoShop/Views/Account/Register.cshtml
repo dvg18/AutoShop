@@ -34,6 +34,11 @@
             <input type="submit" class="btn btn-default" value="Регистрация" />
         </div>
     </div>
+    if (ViewBag.Administration)
+    {
+        <dt>Случайный пароль: </dt>
+            <dd>[ @ViewBag.PasswordForAdmin ]</dd>
+    }
 }
 
 @section Scripts {

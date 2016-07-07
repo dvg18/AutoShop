@@ -27,14 +27,15 @@
         @if (ViewBag.Administration)
         {
             <dt>Администрирование: </dt>
-            <dd>[ <a href="/roles">Ссылка</a> ]</dd>
-        }
+            <dd>[ @Html.ActionLink("Пользователи", "Users", "Roles") ]</dd>
+            <dd>[ @Html.ActionLink("Создать нового пользователя", "Register", "Account") ]</dd>
+        } @*
                 <dt>Внешние имена входа:</dt>
                 <dd>
                     @Model.Logins.Count [
                     @Html.ActionLink("Управление", "ManageLogins") ]
                 </dd>
-                @*
+                
                     Номера телефонов можно использовать в качестве второго проверочного фактора для системы двухфакторной проверки подлинности.
 
                      В <a href="http://go.microsoft.com/fwlink/?LinkId=403804">этой статье</a>

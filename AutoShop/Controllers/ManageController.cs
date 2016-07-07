@@ -65,7 +65,7 @@ namespace AutoShop.Controllers
             var userId = User.Identity.GetUserId();
 
             if (User.IsInRole("admin"))
-                ViewBag.Administration = true;  //"<a href=\"/roles\">Ссылка</a>";
+                ViewBag.Administration = true;  
             else ViewBag.Administration = false;
             var model = new IndexViewModel { };
             if (userId != null)
