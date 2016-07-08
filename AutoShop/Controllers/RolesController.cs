@@ -40,9 +40,20 @@ namespace AutoShop.Controllers
         {
             return View(UserManager.Users);
         }
+
+        [HttpGet]
         public ActionResult Create()
         {
+            var users = new SelectList(db1.Users, "Id", "Email");
+            ViewBag.Users = users;
             return View();
+        }
+        [HttpPost]
+        public ActionResult Create(InfoVisit infovisits)
+        {
+            db1.Infovisits.Add(infovisits);
+            db1.SaveChanges();
+            return RedirectToAction("Visits");
         }
         [HttpGet]
         public async Task<ActionResult> Edit(string email)

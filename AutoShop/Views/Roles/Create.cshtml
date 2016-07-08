@@ -1,17 +1,19 @@
-﻿@model AutoShop.Models.CreateRoleModel
+﻿@model AutoShop.Models.InfoVisit
 
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>Добавление роли</h2>
+<h2>Добавление посещения</h2>
 @using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <div>
-        @Html.ValidationSummary(true, "")
-        <p>Название: @Html.EditorFor(model => model.Name)</p>
-        <p>Описание: @Html.EditorFor(model => model.Description)</p>
-        <p><input type="submit" value="Добавить" /></p>
+{ <fieldset>
+        <legend>Запись пользователя</legend>
+            @Html.HiddenFor(model => model.Id)
+        <p> Дата <br /> @Html.EditorFor(model => model.VisitDate) </p> 
+        <p> Пользователь <br /> @Html.DropDownListFor(model => model.ApplicationUserId, ViewBag.Users as SelectList) </p>
+        <p> <input type="submit" value="Добавить посещение" /> </p>
+    </fieldset> 
+} 
+<div> 
+    @Html.ActionLink("К списку посещений", "Visits") 
     </div>
-}
