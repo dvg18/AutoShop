@@ -38,13 +38,18 @@
                 }
                 ]
             </dd>
-
-            @if (ViewBag.Administration)
+                @if (ViewBag.Administration)
             {
-                <dt>Администрирование: </dt>
+            <dt>Администрирование: </dt>
                 <dd>[ @Html.ActionLink("Пользователи", "Users", "Roles") ]</dd>
                 <dd>[ @Html.ActionLink("Создать нового пользователя", "Register", "Account") ]</dd>
-            } @*
+                }
+                else
+                {
+                    <dt>Назначенное посещение:</dt>
+                    <dd> [ @Html.ActionLink("Посещение", "Visits") ]</dd>
+                }
+                    @*
                 <dt>Внешние имена входа:</dt>
                 <dd>
                     @Model.Logins.Count [

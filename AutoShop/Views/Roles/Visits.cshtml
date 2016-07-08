@@ -1,0 +1,56 @@
+﻿@model IEnumerable<AutoShop.Models.InfoVisit>
+
+@{
+    ViewBag.Title = "Роли";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Посещения</h2>
+<table class="table">
+    <tr>
+        <th> Дата и время посещения</th>
+        <th> Пользователь </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+                @Html.HiddenFor(modelItem => item.Id)
+            <td>
+                @Html.DisplayFor(modelItem => item.VisitDate)
+            </td>
+                @Html.HiddenFor(modelItem => item.ApplicationUserId)
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Редактировать ", "EditVisits", new { id = item.Id })
+                @Html.ActionLink("Удалить", "DeleteVisits", new { id = item.Id })
+            </td>
+</tr>
+        
+    }
+
+</table>
+
+    @*
+        <h2>Роли</h2>
+        @*<h4> @Html.ActionLink("Создать", "Create") </h4>*@@*
+        <h4> @Html.ActionLink("Пользователи", "Users") </h4>
+        <table class="table">
+            <tr>
+                <th>Название</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>
+                       @* @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }) *@@*
+                        </td>
+                    </tr>
+                }
+            </table>
+                        *@
