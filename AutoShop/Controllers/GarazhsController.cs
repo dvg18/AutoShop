@@ -17,6 +17,7 @@ namespace AutoShop.Controllers
         // GET: Garazhs
         public ActionResult Index()
         {
+            
             return View(db.Garazh.ToList());
         }
 
