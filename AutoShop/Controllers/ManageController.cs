@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -14,7 +15,7 @@ namespace AutoShop.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-//        private ApplicationDbContext db1 = new ApplicationDbContext();
+        private ApplicationDbContext db1 = new ApplicationDbContext();
         //private ApplicationUser _user;
         // private ApplicationRoleManager _roleManager;             
         public ManageController()   
@@ -93,6 +94,22 @@ namespace AutoShop.Controllers
                 };
             }
             return View(model);
+        }
+
+        public async Task<ActionResult> Visits()
+        {
+            ApplicationUser user = await UserManager.FindByEmailAsync(User.Identity.Name);
+            var id = user.Id;
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            ApplicationUser user1 = db1.Users.Include(t => t.Infovisits).FirstOrDefault(t => t.Id == id);
+            if (user1 == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user1);
         }
 
         //

@@ -22,7 +22,11 @@ namespace AutoShop.Models
         public string ClientsPhoneNumber { get; set; }
         public int Discount { get; set; }
         public int Visits { get; set; }
-        //public List<InfoVisit> infovisits { get; set; }
+        public ICollection<InfoVisit> Infovisits { get; set; }
+
+        public ApplicationUser() {
+            Infovisits = new List<InfoVisit>();
+        }
 
     }
 
@@ -32,7 +36,8 @@ namespace AutoShop.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-       // public DbSet<InfoVisit> Infovisits { get; set; }
+        public DbSet<InfoVisit> Infovisits { get; set; }
+        //public DbSet<ApplicationUser> ApplicationUsers1 { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
