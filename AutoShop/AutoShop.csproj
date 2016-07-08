@@ -237,6 +237,10 @@
     <Compile Include="Migrations\201607080118489_DataMigration5.Designer.cs">
       <DependentUpon>201607080118489_DataMigration5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607080720226_DataMigration6.cs" />
+    <Compile Include="Migrations\201607080720226_DataMigration6.Designer.cs">
+      <DependentUpon>201607080720226_DataMigration6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actia.cs" />
@@ -410,6 +414,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607080118489_DataMigration5.resx">
       <DependentUpon>201607080118489_DataMigration5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607080720226_DataMigration6.resx">
+      <DependentUpon>201607080720226_DataMigration6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
