@@ -28,7 +28,7 @@ namespace AutoShop.Models
             };
             var contact1 = new Contact
             {
-                adress = "г. Томск ул. Вершинина 38",
+                adress = "г. Томск, ул.Тимакова, 21 ст8",
                 phone = "8-3822-77-77-77",
             };
             db.Services.Add(razvalShozhdenie);
