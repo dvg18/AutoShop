@@ -2,7 +2,7 @@
 
 namespace AutoShop.Models
 {
-    public class AutoShopInitializer : DropCreateDatabaseIfModelChanges<AutoShopContext>
+    public class AutoShopInitializer : DropCreateDatabaseAlways<AutoShopContext>
       
     {
         protected override void Seed(AutoShopContext db)
@@ -28,7 +28,7 @@ namespace AutoShop.Models
             };
             var contact1 = new Contact
             {
-                adress = "г. Томск, ул.Тимакова, 21 ст8",
+                adress = "г. Томск, Енисейская, 1/1",
                 phone = "8-3822-77-77-77",
             };
             db.Services.Add(razvalShozhdenie);
