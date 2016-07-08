@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using AutoShop.Models;
+using System.Collections.Generic;
 
 namespace AutoShop.Controllers
 {
@@ -11,13 +12,24 @@ namespace AutoShop.Controllers
         private AutoShopContext db = new AutoShopContext();
 
         // GET: Services
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
             if (User.IsInRole("admin"))
                 ViewBag.Administration = true;
             else ViewBag.Administration = false;
 
-            return View(db.Services.ToList());
+            var services = db.Services.ToList();
+            var pageSize = 3; // количество объектов на страницу
+            IEnumerable<Services> servicesPerPages = services.Skip((page - 1) * pageSize).Take(pageSize);
+            var pageInfo = new PageInfo
+            {
+                PageNumber = page,
+                PageSize = pageSize,
+                TotalItems =
+            services.Count()
+            };
+            var ivm = new IndexViewModelPage { PageInfo = pageInfo, Services = servicesPerPages };
+            return View(ivm);
         }
 
         // GET: Services/Details/5
