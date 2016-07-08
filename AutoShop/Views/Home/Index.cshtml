@@ -11,37 +11,22 @@
 
 </div>
 
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Услуги</h2>
-                <p>
-                    Чтобы ознакомиться с перечнем услуг, их описанием и  прайсом, нажмите на кнопку ниже &laquo;Перейти&raquo;
-                </p>
-                <p><a class="btn btn-default" href="/Services">Перейти &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>Наши работнички</h2>
-                <p>Вы можите познакомиться с нашей рабочей силой, нажав на кнопку ниже &laquo;Перейти&raquo; </p>
-                <p><a class="btn btn-default" href="/Employees">Перейти &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>Акции</h2>
-                <p>В нашей автомастерской предусмотрены система скидок и акций. Чтобы ознакомиться с ними, нажмите кнопку ниже &laquo;Перейти&raquo;</p>
-                <p><a class="btn btn-default" href="/Actias">Перейти &raquo;</a></p>
-            </div>
-        </div>
-        @section scripts
-{
-            <script type="text/javascript">
-                $(function () {
-                    $.ajaxSetup({ cache: false });
-                    $(".compItem").click(function (e) {
-                        e.preventDefault();
-                        $.get(this.href, function (data) {
-                            $('#dialogContent').html(data);
-                            $('#modDialog').modal('show');
-                        });
-                    });
-                })
-            </script>
-        }
+<div class="row">
+    <div class="col-md-4">
+        <h2>Услуги</h2>
+        <p>
+            Чтобы ознакомиться с перечнем услуг, их описанием и  прайсом, нажмите на кнопку ниже &laquo;Перейти&raquo;
+        </p>
+        <p><a class="btn btn-default" href="/Services">Перейти &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Наши мастера</h2>
+        <p>Вы можете познакомиться с нашей рабочей силой, нажав на кнопку ниже &laquo;Перейти&raquo; </p>
+        <p><a class="btn btn-default" href="/Employees">Перейти &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Акции</h2>
+        <p>В нашей автомастерской предусмотрены система скидок и акций. Чтобы ознакомиться с ними, нажмите кнопку ниже &laquo;Перейти&raquo;</p>
+        <p><a class="btn btn-default" href="/Actias">Перейти &raquo;</a></p>
+    </div>
+</div>
