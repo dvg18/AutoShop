@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<AutoShop.Models.InfoVisit>
 
 @{
-    ViewBag.Title = "Роли";
+    ViewBag.Title = "Посещения";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -31,7 +31,7 @@
     }
 
 </table>
-
+@Html.ActionLink("Вернуться к списку", "Users")
     @*
         <h2>Роли</h2>
         @*<h4> @Html.ActionLink("Создать", "Create") </h4>*@@*
