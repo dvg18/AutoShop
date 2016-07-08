@@ -95,7 +95,6 @@ namespace AutoShop.Models
                 adress = "г. Омск, Енисейская, 1/1",
                 phone = "+7(3812) 49-23-97",
             };
-<<<<<<< HEAD
             var autocar1 = new AutoCar
             {
                 Name = "Autocar1",
@@ -131,9 +130,7 @@ namespace AutoShop.Models
                 Name = "Garahz2",
                 busy = false
             };
-=======
             db.Services.Add(Diagnostika);
->>>>>>> 76d154dcaceb4b1bf93b5fcfea64616955517f9c
             db.Services.Add(razvalShozhdenie);
             db.Services.Add(Forsunki);
             db.Services.Add(ZamenaMasla);
