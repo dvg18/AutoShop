@@ -10,6 +10,10 @@
 
 </head>
 <body >
+    <div id="modDialog" class="modal fade">
+        <div id="dialogContent" class="modal-dialog">
+        </div>
+    </div>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -18,8 +22,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-              @*  @Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) *@
-            </div>
+                @Html.ActionLink("У Иваныча", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) 
+             </div>   
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Главная", "Index", "Home")</li>
@@ -49,7 +53,7 @@
         <script type="text/javascript">
         $(function () {
         $.ajaxSetup({ cache: false });
-        $(".compItem").click(function (e) {
+        $("loginLink").click(function (e) {
         e.preventDefault();
         $.get(this.href, function (data) {
         $('#dialogContent').html(data);
@@ -59,5 +63,6 @@
         })
         </script>
     }
+
 </body>
 </html>

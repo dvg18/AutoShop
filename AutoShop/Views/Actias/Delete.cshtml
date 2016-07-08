@@ -5,15 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Удаление</h2>
 
-<h3>Вы уверены что хотите удалить эту акцию?</h3>
+<h3>Вы уверены, что хотите удалить эту акцию?</h3>
 <div>
   @*  <h4>Actia</h4>*@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.name)
+           Наименование:@* @Html.DisplayNameFor(model => model.name)*@
         </dt>
 
         <dd>
@@ -21,7 +21,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.date)
+          Дата: @* @Html.DisplayNameFor(model => model.date)*@
         </dt>
 
         <dd>
@@ -29,7 +29,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.description)
+         Описание: @*  @Html.DisplayNameFor(model => model.description)*@
         </dt>
 
         <dd>
