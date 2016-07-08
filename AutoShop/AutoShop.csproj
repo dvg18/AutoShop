@@ -203,8 +203,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActiaController.cs" />
     <Compile Include="Controllers\ActiasController.cs" />
+    <Compile Include="Controllers\AutoCarsController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\GarazhsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
@@ -240,6 +242,7 @@
     <Compile Include="Models\ApplicationRole.cs" />
     <Compile Include="Models\ApplicationRoleManager.cs" />
     <Compile Include="Models\ApplicationUserManager.cs" />
+    <Compile Include="Models\AutoCar.cs" />
     <Compile Include="Models\AutoShopInitializer.cs" />
     <Compile Include="Models\AutoShopContext.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -247,6 +250,7 @@
     <Compile Include="Models\EditRoleModel.cs" />
     <Compile Include="Models\EditUsersModel.cs" />
     <Compile Include="Models\Employees.cs" />
+    <Compile Include="Models\Garag.cs" />
     <Compile Include="Models\IndexViewModelPage.cs" />
     <Compile Include="Models\InfoVisits.cs" />
     <Compile Include="Models\PageInfo.cs" />
@@ -373,10 +377,22 @@
     <Content Include="Views\Contacts\Edit.cshtml" />
     <Content Include="Views\Contacts\Index.cshtml" />
     <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\AutoCars\Create.cshtml" />
+    <Content Include="Views\AutoCars\Delete.cshtml" />
+    <Content Include="Views\AutoCars\Details.cshtml" />
+    <Content Include="Views\AutoCars\Edit.cshtml" />
+    <Content Include="Views\AutoCars\Index.cshtml" />
+    <Content Include="Views\Garazhs\Create.cshtml" />
+    <Content Include="Views\Garazhs\Delete.cshtml" />
+    <Content Include="Views\Garazhs\Details.cshtml" />
+    <Content Include="Views\Garazhs\Edit.cshtml" />
+    <Content Include="Views\Garazhs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Filters\" />
+    <Folder Include="Views\AutoCar\" />
+    <Folder Include="Views\Calendar\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

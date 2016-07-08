@@ -31,10 +31,59 @@ namespace AutoShop.Models
                 adress = "г. Омск, Енисейская, 1/1",
                 phone = "+7(3812) 49-23-97",
             };
+            var autocar1 = new AutoCar
+            {
+                Name = "Autocar1",
+                busy = true,
+
+            };
+            var autocar2 = new AutoCar
+            {
+                Name = "Autocar2",
+                busy = true
+
+            };
+            var autocar3 = new AutoCar
+            {
+                Name = "Autocar3",
+                busy = false
+
+            };
+            var autocar4 = new AutoCar
+            {
+                Name = "Autocar4",
+                busy = false
+
+            };
+            var garazh1 = new Garazh
+            {
+                Name = "Garahz1",
+                busy = true
+            };
+            
+            var garazh2 = new Garazh
+            {
+                Name = "Garahz2",
+                busy = false
+            };
             db.Services.Add(razvalShozhdenie);
             db.Employees.Add(Ivanov);
             db.Action.Add(action1);
             db.Contact.Add(contact1);
+            db.AutoCar.Add(autocar1);
+            db.AutoCar.Add(autocar2);
+            db.AutoCar.Add(autocar3);
+            db.AutoCar.Add(autocar4);
+
+            garazh1.AutoCar.Add(autocar1);
+            garazh1.AutoCar.Add(autocar2);
+            garazh2.AutoCar.Add(autocar3);
+            garazh2.AutoCar.Add(autocar4);
+
+            db.Garazh.Add(garazh1);
+            db.Garazh.Add(garazh2);
+
+
             base.Seed(db);
         }
 
