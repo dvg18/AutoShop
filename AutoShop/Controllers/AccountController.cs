@@ -173,9 +173,10 @@ namespace AutoShop.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FIOName = model.FIOName, ClientsPhoneNumber = model.ClientsPhoneNumber };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -192,8 +193,8 @@ namespace AutoShop.Controllers
                 }
                 AddErrors(result);
             }
-
             // Появление этого сообщения означает наличие ошибки; повторное отображение формы
+            ViewBag.Administration = false;
             return View(model);
         }
 

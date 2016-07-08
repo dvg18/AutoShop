@@ -13,9 +13,10 @@
         @Html.ValidationSummary(true, "")
         <div>
             @Html.HiddenFor(model => model.Email)
-            <p>ФИО: @Html.EditorFor(model => model.FIOName)</p>
+            <p>Ф.И.О.: @Html.EditorFor(model => model.FIOName)</p>
+            <p>Номер: @Html.EditorFor(model => model.ClientsPhoneNumber)</p>
             <p>Посещения: @Html.EditorFor(model => model.Visits)</p>
-            <p>Скидка: @Html.EditorFor(model => model.Discount)</p>
+            <p>Скидка, %: @Html.EditorFor(model => model.Discount)</p>
         </div>
         <div>
             <div>

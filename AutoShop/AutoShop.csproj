@@ -229,6 +229,10 @@
     <Compile Include="Migrations\201607070729445_DataMigration3.Designer.cs">
       <DependentUpon>201607070729445_DataMigration3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607072217451_DataMigration4.cs" />
+    <Compile Include="Migrations\201607072217451_DataMigration4.Designer.cs">
+      <DependentUpon>201607072217451_DataMigration4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actia.cs" />
@@ -244,6 +248,7 @@
     <Compile Include="Models\EditUsersModel.cs" />
     <Compile Include="Models\Employees.cs" />
     <Compile Include="Models\IndexViewModelPage.cs" />
+    <Compile Include="Models\InfoVisits.cs" />
     <Compile Include="Models\PageInfo.cs" />
     <Compile Include="Models\Services.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -389,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607070729445_DataMigration3.resx">
       <DependentUpon>201607070729445_DataMigration3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607072217451_DataMigration4.resx">
+      <DependentUpon>201607072217451_DataMigration4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

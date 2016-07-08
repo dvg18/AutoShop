@@ -27,6 +27,7 @@ namespace AutoShop.Controllers
         }
         public ActionResult Index()
         {
+
             return View(RoleManager.Roles);
         }
         public ActionResult Users()
@@ -43,7 +44,7 @@ namespace AutoShop.Controllers
             ApplicationUser user = await UserManager.FindByEmailAsync(email);
             if (user != null)
             {
-                EditUsersModel model = new EditUsersModel { FIOName = user.FIOName, Visits = user.Visits, Discount = user.Discount, Email = user.Email };
+                EditUsersModel model = new EditUsersModel { FIOName = user.FIOName, Visits = user.Visits, Discount = user.Discount, Email = user.Email, ClientsPhoneNumber = user.ClientsPhoneNumber };
                 return View(model);
             }
             return RedirectToAction("Login", "Account");
@@ -57,6 +58,7 @@ namespace AutoShop.Controllers
                 user.FIOName = model.FIOName;
                 user.Visits = model.Visits;
                 user.Discount = model.Discount;
+                user.ClientsPhoneNumber = model.ClientsPhoneNumber;
                 IdentityResult result = await UserManager.UpdateAsync(user);
                 if (result.Succeeded)
                 {

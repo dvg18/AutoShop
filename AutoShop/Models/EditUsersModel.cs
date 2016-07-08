@@ -9,6 +9,7 @@ namespace AutoShop.Models
     {
         public string Email { get; set; }
         public string FIOName { get; set; }
+        public string ClientsPhoneNumber { get; set; }
         public int Discount { get; set; }
         public int Visits { get; set; }
     }
