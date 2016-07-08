@@ -28,8 +28,8 @@ namespace AutoShop.Models
             };
             var contact1 = new Contact
             {
-                adress = "г. Томск, Енисейская, 1/1",
-                phone = "8-3822-77-77-77",
+                adress = "г. Омск, Енисейская, 1/1",
+                phone = "+7(3812) 49-23-97",
             };
             db.Services.Add(razvalShozhdenie);
             db.Employees.Add(Ivanov);
