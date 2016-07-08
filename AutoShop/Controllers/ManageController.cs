@@ -14,6 +14,7 @@ namespace AutoShop.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+//        private ApplicationDbContext db1 = new ApplicationDbContext();
         //private ApplicationUser _user;
         // private ApplicationRoleManager _roleManager;             
         public ManageController()   
@@ -65,6 +66,16 @@ namespace AutoShop.Controllers
 
             var userId = User.Identity.GetUserId();
 
+            ApplicationUser user = await UserManager.FindByEmailAsync(User.Identity.Name);
+
+            if (user != null)
+            {
+                ViewBag.FIOName = user.FIOName;
+                ViewBag.Visits = user.Visits;
+                ViewBag.Email = user.Email;
+                ViewBag.Discount = user.Discount;
+                ViewBag.ClientsPhoneNumber = user.ClientsPhoneNumber;
+            }
             if (User.IsInRole("admin"))
                 ViewBag.Administration = true;  
             else ViewBag.Administration = false;

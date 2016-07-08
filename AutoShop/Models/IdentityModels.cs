@@ -3,6 +3,8 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
+using System;
 
 namespace AutoShop.Models
 {
@@ -17,8 +19,10 @@ namespace AutoShop.Models
             return userIdentity;
         }
         public string FIOName { get; set; }
+        public string ClientsPhoneNumber { get; set; }
         public int Discount { get; set; }
         public int Visits { get; set; }
+        //public List<InfoVisit> infovisits { get; set; }
 
     }
 
@@ -28,10 +32,11 @@ namespace AutoShop.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
+       // public DbSet<InfoVisit> Infovisits { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
     }
+    
 }
