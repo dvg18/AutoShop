@@ -1,4 +1,9 @@
-﻿@model IEnumerable<AutoShop.Models.Services>
+﻿@*
+@model IEnumerable<AutoShop.Models.Services>
+
+*@
+@model AutoShop.Models.IndexViewModelPage
+@using AutoShop.Helpers
 
 @{
     ViewBag.Title = "Услуги";
@@ -8,8 +13,13 @@
 <h2>Услуги</h2>
 
 <p>
+@if (ViewBag.Administration)
+{
     @Html.ActionLink("Добавить", "Create")
+}
 </p>
+
+
 <table class="table">
     <tr>
         <th>
@@ -24,7 +34,7 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.Services) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.name)
@@ -36,11 +46,21 @@
             @Html.DisplayFor(modelItem => item.description)
         </td>
         <td>
-            @Html.ActionLink("Редактировать", "Edit", new { id=item.id }) |
+            
+        @if (ViewBag.Administration)
+        {
+            @Html.ActionLink("Редактировать ", "Edit", new { id = item.id }) 
           @*  @Html.ActionLink("Детали", "Details", new { id=item.id }) | *@
-            @Html.ActionLink("Удалить", "Delete", new { id=item.id })
+            @Html.ActionLink("Удалить", "Delete", new { id = item.id })
+        }
         </td>
+        
     </tr>
 }
 
 </table>
+
+
+<div class="btn-group">
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("Index", new { page = x }))
+</div>

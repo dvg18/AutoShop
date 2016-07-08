@@ -20,11 +20,11 @@ namespace AutoShop.Models
             roleManager.Create(role1);
             roleManager.Create(role2);
 
-            var admin = new ApplicationUser { Email = "dumkailim@gmail.com", UserName = "dumkailim@gmail.com", FIOName = "Группа администраторов", Visits = 1000, Discount = 100 };
+            var admin = new ApplicationUser { Email = "dumkailim@gmail.com", UserName = "dumkailim@gmail.com", FIOName = "Группа администраторов", Visits = 1000, Discount = 100, ClientsPhoneNumber = "8 999 999 99 99" };
             string password = "U$t1l1msk";
             var result = userManager.Create(admin, password);
 
-            var user = new ApplicationUser { Email = "aaa@aaa.aaa", UserName = "aaa@aaa.aaa", FIOName = "Некий пользователь", Visits = 0, Discount = 0 };
+            var user = new ApplicationUser { Email = "aaa@aaa.aaa", UserName = "aaa@aaa.aaa", FIOName = "Некий пользователь", Visits = 0, Discount = 0, ClientsPhoneNumber = "8 912 345 67 89" };
             string userPassword = "aaa@AAA1";
             var userResult = userManager.Create(user, userPassword);
 

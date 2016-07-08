@@ -27,6 +27,7 @@ namespace AutoShop.Controllers
         }
         public ActionResult Index()
         {
+
             return View(RoleManager.Roles);
         }
         public ActionResult Users()
@@ -43,7 +44,7 @@ namespace AutoShop.Controllers
             ApplicationUser user = await UserManager.FindByEmailAsync(email);
             if (user != null)
             {
-                EditUsersModel model = new EditUsersModel { FIOName = user.FIOName, Visits = user.Visits, Discount = user.Discount, Email = user.Email };
+                EditUsersModel model = new EditUsersModel { FIOName = user.FIOName, Visits = user.Visits, Discount = user.Discount, Email = user.Email, ClientsPhoneNumber = user.ClientsPhoneNumber };
                 return View(model);
             }
             return RedirectToAction("Login", "Account");
@@ -57,10 +58,11 @@ namespace AutoShop.Controllers
                 user.FIOName = model.FIOName;
                 user.Visits = model.Visits;
                 user.Discount = model.Discount;
+                user.ClientsPhoneNumber = model.ClientsPhoneNumber;
                 IdentityResult result = await UserManager.UpdateAsync(user);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Users", "Roles");
                 }
                 else
                 {
@@ -73,6 +75,33 @@ namespace AutoShop.Controllers
             }
 
             return View(model);
+        }
+        [HttpGet]
+        public async Task<ActionResult> Delete(string email)
+        {
+            ApplicationUser user = await UserManager.FindByEmailAsync(email);
+            if (user != null)
+            {
+                EditUsersModel model = new EditUsersModel { Email = user.Email };
+                return View(model);
+            }
+            return RedirectToAction("Login", "Account");
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public async Task<ActionResult> DeleteConfirmed(EditUsersModel model)
+        {
+            ApplicationUser user = await UserManager.FindByEmailAsync(model.Email);
+            if (user != null)
+            {
+                IdentityResult result = await UserManager.DeleteAsync(user);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Users", "Roles");
+                }
+            }
+            return RedirectToAction("Index", "Home");
         }
     }
     

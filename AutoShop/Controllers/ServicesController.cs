@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using AutoShop.Models;
+using System.Collections.Generic;
 
 namespace AutoShop.Controllers
 {
@@ -15,9 +12,24 @@ namespace AutoShop.Controllers
         private AutoShopContext db = new AutoShopContext();
 
         // GET: Services
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            return View(db.Services.ToList());
+            if (User.IsInRole("admin"))
+                ViewBag.Administration = true;
+            else ViewBag.Administration = false;
+
+            var services = db.Services.ToList();
+            var pageSize = 3; // количество объектов на страницу
+            IEnumerable<Services> servicesPerPages = services.Skip((page - 1) * pageSize).Take(pageSize);
+            var pageInfo = new PageInfo
+            {
+                PageNumber = page,
+                PageSize = pageSize,
+                TotalItems =
+            services.Count()
+            };
+            var ivm = new IndexViewModelPage { PageInfo = pageInfo, Services = servicesPerPages };
+            return View(ivm);
         }
 
         // GET: Services/Details/5
@@ -36,6 +48,7 @@ namespace AutoShop.Controllers
         }
 
         // GET: Services/Create
+        [Authorize(Roles = "admin")]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +59,7 @@ namespace AutoShop.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public ActionResult Create([Bind(Include = "id,name,cost,description")] Services services)
         {
             if (ModelState.IsValid)
@@ -59,6 +73,7 @@ namespace AutoShop.Controllers
         }
 
         // GET: Services/Edit/5
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +93,7 @@ namespace AutoShop.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public ActionResult Edit([Bind(Include = "id,name,cost,description")] Services services)
         {
             if (ModelState.IsValid)
@@ -90,6 +106,7 @@ namespace AutoShop.Controllers
         }
 
         // GET: Services/Delete/5
+        [Authorize(Roles = "admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,6 +124,7 @@ namespace AutoShop.Controllers
         // POST: Services/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Services services = db.Services.Find(id);
