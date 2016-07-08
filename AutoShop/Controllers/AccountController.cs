@@ -72,7 +72,7 @@ namespace AutoShop.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return PartialView(model);
             }
 
             // Сбои при входе не приводят к блокированию учетной записи

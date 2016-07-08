@@ -6,6 +6,7 @@
 }
 
 <h2>Пользователи</h2>
+<h4>@Html.ActionLink("Посещения", "Visits", "Roles")</h4>
 <table class="table">
     <tr>
         <th>Ф.И.О.</th>
@@ -21,7 +22,7 @@
                 <td>@item.FIOName</td>
                 <td>@item.Email </td>
                 <td>@item.Visits </td>
-                <td>@item.Discount </td>
+                <td>@item.Discount %</td>
                 <td>@item.ClientsPhoneNumber </td>
                 <td>
                     @Html.ActionLink("Редактировать", "Edit", "Roles", new { email = item.Email }, null) |
@@ -30,3 +31,4 @@
             </tr>
         }
 </table>
+@Html.ActionLink("Вернуться к списку", "Index", "Manage")

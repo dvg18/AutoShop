@@ -12,15 +12,21 @@
         <tr>
             <th>Ф.И.О.</th>
             <th>Email</th>
-            <th>Количество посещений</th>
-            <th>Скидка, %</th>
+            @if (!ViewBag.Administration)
+            {
+                <th>Количество посещений</th>
+                <th>Скидка</th>
+            }
             <th>Номер телефона</th>
         </tr>
         <tr>
             <td>@ViewBag.FIOName</td>
             <td>@ViewBag.Email </td>
-            <td>@ViewBag.Visits </td>
-            <td>@ViewBag.Discount </td>
+            @if (!ViewBag.Administration)
+            {
+                <td>@ViewBag.Visits </td>
+                <td>@ViewBag.Discount %</td>
+            }
             <td>@ViewBag.ClientsPhoneNumber </td>
 </table>
         <hr />
@@ -38,13 +44,18 @@
                 }
                 ]
             </dd>
-
-            @if (ViewBag.Administration)
+                @if (ViewBag.Administration)
             {
-                <dt>Администрирование: </dt>
+            <dt>Администрирование: </dt>
                 <dd>[ @Html.ActionLink("Пользователи", "Users", "Roles") ]</dd>
                 <dd>[ @Html.ActionLink("Создать нового пользователя", "Register", "Account") ]</dd>
-            } @*
+                }
+                else
+                {
+                    <dt>Назначенное посещение:</dt>
+                    <dd> [ @Html.ActionLink("Посещение", "Visits") ]</dd>
+                }
+                    @*
                 <dt>Внешние имена входа:</dt>
                 <dd>
                     @Model.Logins.Count [

@@ -1,0 +1,37 @@
+﻿@using AutoShop.Models
+@model AutoShop.Models.ApplicationUser
+@{
+    ViewBag.Title = "Visits";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Моё время посещения</h2>
+
+<div>
+    <h4>Пользователь @Model.Email</h4>
+    <hr />
+    <dl>
+        <dt>Ф.И.О.</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FIOName)
+        </dd>
+
+        <dt>Скидка</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discount) %
+        </dd>
+
+        <dt>Визит</dt>
+
+        <dd>
+            <ul>
+                @foreach (InfoVisit infoVisit in Model.Infovisits)
+                {
+                    <li>@infoVisit.VisitDate</li>
+                }
+            </ul>
+        </dd>
+    </dl>
+</div>

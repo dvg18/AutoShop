@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
+using System.Linq;
 
 namespace AutoShop.Controllers
 {
@@ -27,16 +29,31 @@ namespace AutoShop.Controllers
         }
         public ActionResult Index()
         {
-
-            return View(RoleManager.Roles);
+             return View(RoleManager.Roles);
+        }
+        public ActionResult Visits()
+        {
+            var users = db1.Infovisits.Include(p => p.ApplicationUser);
+            return View(users.ToList());
         }
         public ActionResult Users()
         {
             return View(UserManager.Users);
         }
+
+        [HttpGet]
         public ActionResult Create()
         {
+            var users = new SelectList(db1.Users, "Id", "Email");
+            ViewBag.Users = users;
             return View();
+        }
+        [HttpPost]
+        public ActionResult Create(InfoVisit infovisits)
+        {
+            db1.Infovisits.Add(infovisits);
+            db1.SaveChanges();
+            return RedirectToAction("Visits");
         }
         [HttpGet]
         public async Task<ActionResult> Edit(string email)
@@ -102,6 +119,59 @@ namespace AutoShop.Controllers
                 }
             }
             return RedirectToAction("Index", "Home");
+        }
+
+
+        [HttpGet]
+        public ActionResult EditVisits(int? id)
+        {
+            
+            // ApplicationUser user = await UserManager.FindByEmailAsync(email);
+            if (id == null) {
+                return HttpNotFound();
+            }
+            var infovisit = db1.Infovisits.Find(id);
+
+            if (infovisit != null)
+            {
+                var users = new SelectList(db1.Users, "Id", "Email", infovisit.ApplicationUserId);
+                ViewBag.Users = users;
+                return View(infovisit);
+                //EditUsersModel model = new EditUsersModel { FIOName = user.FIOName, Visits = user.Visits, Discount = user.Discount, Email = user.Email, ClientsPhoneNumber = user.ClientsPhoneNumber };
+                //return View(model);
+            }
+            return RedirectToAction("Visits");
+        }
+        [HttpPost]
+        public ActionResult EditVisits(InfoVisit infovisit)
+        {
+            db1.Entry(infovisit).State = EntityState.Modified;
+            db1.SaveChanges();
+            return RedirectToAction("Visits");
+        }
+
+
+
+        [HttpGet]
+        public ActionResult DeleteVisits(int? id)
+        {
+            var infovisit = db1.Infovisits.Find(id);
+            if (infovisit == null)
+            {
+                return HttpNotFound();
+            }
+            return View(infovisit);
+        }
+
+        [HttpPost]
+        [ActionName("DeleteVisits")]
+        public ActionResult DeleteConfirmedVisits(int? id)
+        {
+            var infovisit = db1.Infovisits.Find(id);
+            db1.Infovisits.Remove(infovisit);
+            db1.SaveChanges();
+
+            return RedirectToAction("Visits");
         }
     }
     

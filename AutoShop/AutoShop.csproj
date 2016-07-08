@@ -235,6 +235,14 @@
     <Compile Include="Migrations\201607072217451_DataMigration4.Designer.cs">
       <DependentUpon>201607072217451_DataMigration4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607080118489_DataMigration5.cs" />
+    <Compile Include="Migrations\201607080118489_DataMigration5.Designer.cs">
+      <DependentUpon>201607080118489_DataMigration5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607080720226_DataMigration6.cs" />
+    <Compile Include="Migrations\201607080720226_DataMigration6.Designer.cs">
+      <DependentUpon>201607080720226_DataMigration6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actia.cs" />
@@ -377,6 +385,7 @@
     <Content Include="Views\Contacts\Edit.cshtml" />
     <Content Include="Views\Contacts\Index.cshtml" />
     <Content Include="Views\Roles\Delete.cshtml" />
+     HEAD
     <Content Include="Views\AutoCars\Create.cshtml" />
     <Content Include="Views\AutoCars\Delete.cshtml" />
     <Content Include="Views\AutoCars\Details.cshtml" />
@@ -387,6 +396,13 @@
     <Content Include="Views\Garazhs\Details.cshtml" />
     <Content Include="Views\Garazhs\Edit.cshtml" />
     <Content Include="Views\Garazhs\Index.cshtml" />
+=======
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Manage\Visits.cshtml" />
+    <Content Include="Views\Roles\Visits.cshtml" />
+    <Content Include="Views\Roles\EditVisits.cshtml" />
+    <Content Include="Views\Roles\DeleteVisits.cshtml" />
+>>>>>>> 76d154dcaceb4b1bf93b5fcfea64616955517f9c
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -414,6 +430,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607072217451_DataMigration4.resx">
       <DependentUpon>201607072217451_DataMigration4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607080118489_DataMigration5.resx">
+      <DependentUpon>201607080118489_DataMigration5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607080720226_DataMigration6.resx">
+      <DependentUpon>201607080720226_DataMigration6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
