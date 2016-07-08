@@ -7,7 +7,9 @@ namespace AutoShop.Models
 {
     public class InfoVisit
     {
-        public int InfoVisitId { get; set; }
+        public int Id { get; set; }
         public DateTime VisitDate { get; set; }
+        public int? ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }
