@@ -26,6 +26,21 @@ namespace AutoShop.Models
                 description = "Бесплатно меняем масло при условии покупки масляного фильтра и моторного масла у наших партнеров"
 
             };
+            var action2 = new Actia
+            {
+                name = "Бесплатная замена колодок",
+                date = "01.07.2016-01.08.2016",
+                description = "Бесплатно меняем колодки при условии покупки колодок у наших партнеров"
+
+            };
+
+            var action3 = new Actia
+            {
+                name = "Скидка 10% на все услуги автосервиса",
+                date = "22.08.2016-31.08.2016",
+                description = "В связи с окончанием летнего сезона, в автосервисе \"У Иваныча\" проходят скидки на все услуги "
+
+            };
             var contact1 = new Contact
             {
                 adress = "г. Омск, Енисейская, 1/1",
@@ -34,6 +49,8 @@ namespace AutoShop.Models
             db.Services.Add(razvalShozhdenie);
             db.Employees.Add(Ivanov);
             db.Action.Add(action1);
+            db.Action.Add(action2);
+            db.Action.Add(action3);
             db.Contact.Add(contact1);
             base.Seed(db);
         }
