@@ -51,8 +51,15 @@ namespace AutoShop.Controllers
         [HttpPost]
         public ActionResult Create(InfoVisit infovisits)
         {
-            db1.Infovisits.Add(infovisits);
-            db1.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                db1.Infovisits.Add(infovisits);
+                db1.SaveChanges();
+            }
+            else
+            {
+                return Content("<h2> Ошибка! Дата должна быть в формате 24:00 01.01.2000 </h2>");
+            }
             return RedirectToAction("Visits");
         }
         [HttpGet]
@@ -145,12 +152,18 @@ namespace AutoShop.Controllers
         [HttpPost]
         public ActionResult EditVisits(InfoVisit infovisit)
         {
-            db1.Entry(infovisit).State = EntityState.Modified;
-            db1.SaveChanges();
+            //ViewBag.Error = "";
+            if (ModelState.IsValid)
+            {
+                db1.Entry(infovisit).State = EntityState.Modified;
+                db1.SaveChanges();
+            }
+            else
+            {
+                return Content("<h2> Ошибка! Дата должна быть в формате 24:00 01.01.2000 </h2>");
+            }
             return RedirectToAction("Visits");
         }
-
-
 
         [HttpGet]
         public ActionResult DeleteVisits(int? id)

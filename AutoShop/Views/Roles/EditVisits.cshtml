@@ -9,10 +9,12 @@
 
 @using (Html.BeginForm())
 {
+    @Html.ValidationSummary(true)
     <fieldset>
         <legend>Запись пользователя </legend>
         @Html.HiddenFor(model => model.Id)
-        <p> Дата<br /> @Html.EditorFor(model => model.VisitDate) </p>
+        <p> Дата<br /> @Html.EditorFor(model => model.VisitDate)
+        @Html.ValidationMessageFor(model => model.VisitDate) </p>
         <p>Пользователь <br /> @Html.DropDownListFor(model => model.ApplicationUserId, ViewBag.Users as SelectList) </p> 
         <p> <input type="submit" value="Сохранить" /> </p>
     </fieldset>
