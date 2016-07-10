@@ -2,7 +2,7 @@
 
 namespace AutoShop.Models
 {
-    public class AutoShopInitializer : DropCreateDatabaseAlways<AutoShopContext>
+    public class AutoShopInitializer : DropCreateDatabaseIfModelChanges<AutoShopContext>
       
     {
         protected override void Seed(AutoShopContext db)

@@ -284,7 +284,7 @@
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="ApplicationInsights.config">
+    <Content Include="Views\ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -385,7 +385,6 @@
     <Content Include="Views\Contacts\Edit.cshtml" />
     <Content Include="Views\Contacts\Index.cshtml" />
     <Content Include="Views\Roles\Delete.cshtml" />
-     
     <Content Include="Views\AutoCars\Create.cshtml" />
     <Content Include="Views\AutoCars\Delete.cshtml" />
     <Content Include="Views\AutoCars\Details.cshtml" />
@@ -405,8 +404,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Filters\" />
-    <Folder Include="Views\AutoCar\" />
-    <Folder Include="Views\Calendar\" />
+    <Folder Include="Views\Employees\Calendar\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

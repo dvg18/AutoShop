@@ -6,7 +6,11 @@
 }
 <h2>Добавление посещения</h2>
 @using (Html.BeginForm())
-{ <fieldset>
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <fieldset>
+
         <legend>Запись пользователя</legend>
             @Html.HiddenFor(model => model.Id)
         <p> Дата <br /> @Html.EditorFor(model => model.VisitDate) </p> 
