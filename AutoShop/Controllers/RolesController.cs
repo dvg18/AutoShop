@@ -13,7 +13,7 @@ namespace AutoShop.Controllers
     [Authorize(Roles = "admin")]
     public class RolesController : Controller
     {
-        private ApplicationDbContext db1= new ApplicationDbContext();
+        private ApplicationDbContext db1 = new ApplicationDbContext();
         private ApplicationRoleManager RoleManager
         {
             get
@@ -188,6 +188,15 @@ namespace AutoShop.Controllers
             db1.SaveChanges();
 
             return RedirectToAction("Visits");
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db1.Dispose();
+            }
+
+            base.Dispose(disposing);
         }
     }
     
