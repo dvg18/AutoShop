@@ -203,10 +203,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActiaController.cs" />
     <Compile Include="Controllers\ActiasController.cs" />
-    <Compile Include="Controllers\AutoCarsController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
-    <Compile Include="Controllers\GarazhsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
@@ -242,6 +240,10 @@
     <Compile Include="Migrations\201607080720226_DataMigration6.cs" />
     <Compile Include="Migrations\201607080720226_DataMigration6.Designer.cs">
       <DependentUpon>201607080720226_DataMigration6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607081942096_DataMigration1.cs" />
+    <Compile Include="Migrations\201607081942096_DataMigration1.Designer.cs">
+      <DependentUpon>201607081942096_DataMigration1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -385,16 +387,6 @@
     <Content Include="Views\Contacts\Edit.cshtml" />
     <Content Include="Views\Contacts\Index.cshtml" />
     <Content Include="Views\Roles\Delete.cshtml" />
-    <Content Include="Views\AutoCars\Create.cshtml" />
-    <Content Include="Views\AutoCars\Delete.cshtml" />
-    <Content Include="Views\AutoCars\Details.cshtml" />
-    <Content Include="Views\AutoCars\Edit.cshtml" />
-    <Content Include="Views\AutoCars\Index.cshtml" />
-    <Content Include="Views\Garazhs\Create.cshtml" />
-    <Content Include="Views\Garazhs\Delete.cshtml" />
-    <Content Include="Views\Garazhs\Details.cshtml" />
-    <Content Include="Views\Garazhs\Edit.cshtml" />
-    <Content Include="Views\Garazhs\Index.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Manage\Visits.cshtml" />
     <Content Include="Views\Roles\Visits.cshtml" />
@@ -432,6 +424,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607080720226_DataMigration6.resx">
       <DependentUpon>201607080720226_DataMigration6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607081942096_DataMigration1.resx">
+      <DependentUpon>201607081942096_DataMigration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

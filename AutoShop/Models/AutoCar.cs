@@ -11,7 +11,10 @@ namespace AutoShop.Models
         public string Name { get; set; }
         public bool busy { get; set; }
 
-        public int? GarazhId { get; set; }
-        public Garazh Garazh { get; set; }
+        //public int? GarazhId { get; set; }
+        //public Garazh Garazh { get; set; }
+        public int? InfoVisitId { get; set; }
+        public InfoVisit InfoVisit { get; set; }
+
     }
 }

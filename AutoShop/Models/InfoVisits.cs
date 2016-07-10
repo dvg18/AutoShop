@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace AutoShop.Models
@@ -12,5 +13,12 @@ namespace AutoShop.Models
         public DateTime VisitDate { get; set; }
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
+        public ICollection<AutoCar> AutoCars { get; set; }
+        public InfoVisit()
+        {
+            AutoCars = new List<AutoCar>();
+        } 
+
+        //public int? AutoCarId { get; set; }
     }
 }

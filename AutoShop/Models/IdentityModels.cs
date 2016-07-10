@@ -23,6 +23,7 @@ namespace AutoShop.Models
         public int Discount { get; set; }
         public int Visits { get; set; }
         public ICollection<InfoVisit> Infovisits { get; set; }
+        
 
         public ApplicationUser() {
             Infovisits = new List<InfoVisit>();
@@ -37,6 +38,7 @@ namespace AutoShop.Models
         {
         }
         public DbSet<InfoVisit> Infovisits { get; set; }
+        public DbSet<AutoCar> AutoCars { get; set; }
         //public DbSet<ApplicationUser> ApplicationUsers1 { get; set; }
         public static ApplicationDbContext Create()
         {
