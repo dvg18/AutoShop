@@ -6,44 +6,46 @@
 }
 
 @*<h2>Delete</h2> *@
+<div class="formybutton" style="color:#ffffff">
+    <h3>Вы уверены, что хотите удалить этого мастера?</h3>
+    <div>
+        @*  <h4>Employees</h4> *@
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                ФИО:@*@Html.DisplayNameFor(model => model.fio)*@
+            </dt>
 
-<h3>Вы уверены, что хотите удалить этого мастера?</h3>
-<div>
-  @*  <h4>Employees</h4> *@
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            ФИО:@*@Html.DisplayNameFor(model => model.fio)*@
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.fio)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.fio)
-        </dd>
+            <dt>
+                Специализация:@*@Html.DisplayNameFor(model => model.jobProfile)*@
+            </dt>
 
-        <dt>
-            Специализация:@*@Html.DisplayNameFor(model => model.jobProfile)*@
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.jobProfile)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.jobProfile)
-        </dd>
+            <dt>
+                Телефон:@*@Html.DisplayNameFor(model => model.phone)*@
+            </dt>
 
-        <dt>
-            Телефон:@*@Html.DisplayNameFor(model => model.phone)*@
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.phone)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.phone)
-        </dd>
+        </dl>
 
-    </dl>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Удалить" class="btn btn-default" /> |
-            @Html.ActionLink("Вернуться к списку", "Index")
-        </div>
-    }
-</div>
+            <div class="form-actions no-color">
+                <input type="submit" value="Удалить" class="btn btn-default" /> |
+                @Html.ActionLink("Вернуться к списку", "Index")
+            </div>
+        }
+    </div>
+    </div>

@@ -281,6 +281,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\10процентов.png" />
+    <Content Include="Images\134.png" />
+    <Content Include="Images\350.png" />
+    <Content Include="Images\колодки.png" />
+    <Content Include="Images\Масло.png" />
     <Content Include="Images\УИваныча.png" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />

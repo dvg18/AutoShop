@@ -9,58 +9,61 @@
     ViewBag.Title = "Услуги";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div style="background-color:#333">
+    <h2>Услуги</h2>
 
-<h2>Услуги</h2>
-
-<p>
-@if (ViewBag.Administration)
-{
-    @Html.ActionLink("Добавить", "Create")
-}
-</p>
-
-
-<table class="table">
-    <tr>
-        <th>
-            Наименование
-        </th>
-        <th>
-            Цена
-        </th>
-        <th>
-        Описание    
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model.Services) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.description)
-        </td>
-        <td>
-            
+    <p>
         @if (ViewBag.Administration)
         {
-            @Html.ActionLink("Редактировать ", "Edit", new { id = item.id }) 
-          @*  @Html.ActionLink("Детали", "Details", new { id=item.id }) | *@
-            @Html.ActionLink("Удалить", "Delete", new { id = item.id })
+            @Html.ActionLink("Добавить", "Create")
         }
-        </td>
-        
-    </tr>
-}
-
-</table>
+    </p>
 
 
-<div class="btn-group">
-    @Html.PageLinks(Model.PageInfo, x => Url.Action("Index", new { page = x }))
+    <table class="table">
+        <tr>
+            <th>
+                Наименование
+            </th>
+            <th>
+                Цена
+            </th>
+            <th>
+                Описание
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Services)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+
+                    @if (ViewBag.Administration)
+                    {
+                        @Html.ActionLink("Редактировать ", "Edit", new { id = item.id })
+                        @*  @Html.ActionLink("Детали", "Details", new { id=item.id }) | *@
+                        @Html.ActionLink("Удалить", "Delete", new { id = item.id })
+                    }
+                </td>
+
+            </tr>
+        }
+
+    </table>
+
+
+    <div class="btn-group" style="color:#333">
+        @Html.PageLinks(Model.PageInfo, x => Url.Action("Index", new { page = x }))
+    </div>
+
 </div>
