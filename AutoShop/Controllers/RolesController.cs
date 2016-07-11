@@ -13,7 +13,7 @@ namespace AutoShop.Controllers
     [Authorize(Roles = "admin")]
     public class RolesController : Controller
     {
-        private ApplicationDbContext db1= new ApplicationDbContext();
+        private ApplicationDbContext db1 = new ApplicationDbContext();
         private ApplicationRoleManager RoleManager
         {
             get
@@ -49,16 +49,17 @@ namespace AutoShop.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(InfoVisit infovisits)
         {
-            if (ModelState.IsValid)
-            {
+            try
+            { 
                 db1.Infovisits.Add(infovisits);
                 db1.SaveChanges();
             }
-            else
+            catch       
             {
-                return Content("<h2> Ошибка! Дата должна быть в формате 24:00 01.01.2000 </h2>");
+                return Content("<h2> Ошибка! Дата должна быть в формате 01.01.2000 00:00 </h2>");
             }
             return RedirectToAction("Visits");
         }
@@ -68,7 +69,8 @@ namespace AutoShop.Controllers
             ApplicationUser user = await UserManager.FindByEmailAsync(email);
             if (user != null)
             {
-                EditUsersModel model = new EditUsersModel { FIOName = user.FIOName, Visits = user.Visits, Discount = user.Discount, Email = user.Email, ClientsPhoneNumber = user.ClientsPhoneNumber };
+                EditUsersModel model = new EditUsersModel { FIOName = user.FIOName, Visits = user.Visits,
+                    Discount = user.Discount, Email = user.Email, ClientsPhoneNumber = user.ClientsPhoneNumber };
                 return View(model);
             }
             return RedirectToAction("Login", "Account");
@@ -144,7 +146,8 @@ namespace AutoShop.Controllers
                 var users = new SelectList(db1.Users, "Id", "Email", infovisit.ApplicationUserId);
                 ViewBag.Users = users;
                 return View(infovisit);
-                //EditUsersModel model = new EditUsersModel { FIOName = user.FIOName, Visits = user.Visits, Discount = user.Discount, Email = user.Email, ClientsPhoneNumber = user.ClientsPhoneNumber };
+                //EditUsersModel model = new EditUsersModel { FIOName = user.FIOName, Visits = user.Visits, 
+                //Discount = user.Discount, Email = user.Email, ClientsPhoneNumber = user.ClientsPhoneNumber };
                 //return View(model);
             }
             return RedirectToAction("Visits");
@@ -185,6 +188,15 @@ namespace AutoShop.Controllers
             db1.SaveChanges();
 
             return RedirectToAction("Visits");
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db1.Dispose();
+            }
+
+            base.Dispose(disposing);
         }
     }
     
