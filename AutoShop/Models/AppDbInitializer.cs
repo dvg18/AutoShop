@@ -5,7 +5,7 @@ using System.Data.Entity;
 
 namespace AutoShop.Models
 {
-    public class AppDbInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
+    public class AppDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {
@@ -37,7 +37,50 @@ namespace AutoShop.Models
 
             var userResult = userManager.Create(user, userPassword);
 
-            
+
+            var autocar1 = new AutoCar
+            {
+                Name = "Autocar1",
+                busy = true,
+
+            };
+            var autocar2 = new AutoCar
+            {
+                Name = "Autocar2",
+                busy = true
+
+            };
+            var autocar3 = new AutoCar
+            {
+                Name = "Autocar3",
+                busy = false
+
+            };
+            var autocar4 = new AutoCar
+            {
+                Name = "Autocar4",
+                busy = false
+
+            };
+            var garazh1 = new Garazh
+            {
+                Name = "Garahz1",
+                busy = true
+            };
+
+            var garazh2 = new Garazh
+            {
+                Name = "Garahz2",
+                busy = false
+            };
+
+            context.AutoCars.Add(autocar1);
+            context.AutoCars.Add(autocar2);
+            context.AutoCars.Add(autocar3);
+            context.AutoCars.Add(autocar4);
+
+            infovisit1.AutoCars.Add(autocar1);
+
 
             if (result.Succeeded)
             {
