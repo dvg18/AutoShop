@@ -10,13 +10,14 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <fieldset>
-
-        <legend>Запись пользователя</legend>
+       
+            <h2>Запись пользователя</h2>
             @Html.HiddenFor(model => model.Id)
-        <p> Дата <br /> @Html.EditorFor(model => model.VisitDate) </p> 
-        <p> Пользователь <br /> @Html.DropDownListFor(model => model.ApplicationUserId, ViewBag.Users as SelectList) </p>
-        <p> <input type="submit" value="Добавить посещение" /> </p>
-    </fieldset> 
+            <p> Дата <div style="color:#000000">  @Html.EditorFor(model => model.VisitDate) </div> </p>
+            <p> Пользователь <div style="color:#000000">  @Html.DropDownListFor(model => model.ApplicationUserId, ViewBag.Users as SelectList) </div> </p>
+            <p> <input style="color:#000000" type="submit" value="Добавить посещение" /></p>
+       
+</fieldset> 
 } 
 <div> 
     @Html.ActionLink("К списку посещений", "Visits") 

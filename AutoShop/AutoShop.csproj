@@ -29,6 +29,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -283,7 +284,13 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\10процентов.png" />
     <Content Include="Images\134.png" />
+    <Content Include="Images\1345.jpg" />
     <Content Include="Images\350.png" />
+    <Content Include="Images\350v1.png" />
+    <Content Include="Images\350v2.png" />
+    <Content Include="Images\kolodki1.png" />
+    <Content Include="Images\maslo1.png" />
+    <Content Include="Images\skidka1.png" />
     <Content Include="Images\колодки.png" />
     <Content Include="Images\Масло.png" />
     <Content Include="Images\УИваныча.png" />
